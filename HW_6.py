@@ -2,14 +2,16 @@ class Animal:
     items_animals = []
     items_class = []
     voice = None
-
+    
+    
     @classmethod
     def get_class_weight(cls):
-        return sum([item.weight for item in cls.items_class])
+        return sum([item.weight for item in cls.items_animals if isinstance(item, cls)])
 
     @staticmethod
     def get_biggest_animal_weight():
         return max(Animal.items_animals, key=lambda x: x.weight).name
+
 
     def __init__(self, name, weight):
         self.name = name
